@@ -1,0 +1,28 @@
+{
+  "name": "vite-three-glslify",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/dat.gui": "^0.7.10",
+    "@types/three": "^0.155.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.8",
+    "vite-plugin-glslify": "^2.0.2"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "glsl-aastep": "^1.0.1",
+    "glsl-checker": "^1.0.1",
+    "glsl-halftone": "^1.0.4",
+    "glsl-hash-blur": "^1.0.3",
+    "glsl-noise": "^0.0.0",
+    "glsl-random": "^0.0.5",
+    "three": "^0.127.0"
+  }
+}
