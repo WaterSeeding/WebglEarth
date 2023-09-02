@@ -16,6 +16,10 @@ const setCloud = () => {
   );
   cloud.scale.set(1.025, 1.025, 1.025);
 
+  cloud.userData = {
+    color: new THREE.Color().copy(cloud.material.color),
+  };
+
   return cloud;
 };
 

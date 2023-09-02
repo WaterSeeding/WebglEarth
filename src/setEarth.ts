@@ -15,6 +15,10 @@ const setEarth = () => {
     })
   );
 
+  earth.userData = {
+    color: new THREE.Color().copy(earth.material.color),
+  };
+
   return earth;
 };
 
