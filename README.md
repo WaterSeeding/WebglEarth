@@ -5,7 +5,7 @@
 > 例子虽然很简单，希望大家能喜欢！
 >
 > - [查看地址](https://webgl-skydiving.vercel.app/)
-> - [仓库地址](https://github.com/sebastien-lempens/webgl-skydiving)
+> - [仓库地址](https://github.com/WaterSeeding/WebglEarth)
 
 <br />
 
