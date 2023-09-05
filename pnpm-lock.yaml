@@ -4,26 +4,28 @@ specifiers:
   '@types/dat.gui': ^0.7.10
   '@types/three': ^0.155.0
   dat.gui: ^0.7.9
+  dexie: ^3.2.4
   glsl-aastep: ^1.0.1
   glsl-checker: ^1.0.1
   glsl-halftone: ^1.0.4
   glsl-hash-blur: ^1.0.3
   glsl-noise: ^0.0.0
   glsl-random: ^0.0.5
-  three: ^0.127.0
+  three: ^0.156.0
   typescript: ^5.1.6
   vite: ^4.4.8
   vite-plugin-glslify: ^2.0.2
 
 dependencies:
   dat.gui: 0.7.9
+  dexie: 3.2.4
   glsl-aastep: 1.0.1
   glsl-checker: 1.0.1
   glsl-halftone: 1.0.4
   glsl-hash-blur: 1.0.3
   glsl-noise: 0.0.0
   glsl-random: 0.0.5
-  three: 0.127.0
+  three: 0.156.0
 
 devDependencies:
   '@types/dat.gui': 0.7.10
@@ -321,6 +323,11 @@ packages:
   /deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
+
+  /dexie/3.2.4:
+    resolution: {integrity: sha512-VKoTQRSv7+RnffpOJ3Dh6ozknBqzWw/F3iqMdsZg958R0AS8AnY9x9d1lbwENr0gzeGJHXKcGhAMRaqys6SxqA==}
+    engines: {node: '>=6.0'}
+    dev: false
 
   /duplexify/3.7.1:
     resolution: {integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==}
@@ -812,8 +819,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /three/0.127.0:
-    resolution: {integrity: sha512-wtgrn+mhYUbobxT7QN3GPdu3SRpSBQvwY6uOzLChWS7QE//f7paDU/+wlzbg+ngeIvBBqjBHSRuywTh8A99Jng==}
+  /three/0.156.0:
+    resolution: {integrity: sha512-r6meetGWDk3aYjDRh6NpKuUkzoPlI3yldDQe2SkwCcqTTB5NZn7vKQBUXyMExvlwZShaLmvAbsVWaFzp1rkk3A==}
     dev: false
 
   /through2/0.6.5:

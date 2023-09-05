@@ -3,22 +3,18 @@ import * as dat from "dat.gui";
 import Stats from "three/examples/jsm/libs/stats.module.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import "./style.css";
-import { setEarth } from "./setEarth";
-import { setCloud } from "./setCloud";
-import { setPoints } from "./setPoints";
 import { setHelper } from "./setHelper";
 import { setLight } from "./setLight";
-import { setLensflare } from "./setLensflare";
-import { setSunGui } from "./gui/setSunGui";
-import { setEarthGui } from "./gui/setEarthGui";
 import { SelectiveBloom } from "./SelectiveBloom";
+import { setSelectiveBloomGui } from './gui/setSelectiveBloomGui.ts';
 
 const container = document.querySelector<HTMLDivElement>("#app");
 
 const gui = new dat.GUI({
   width: 450,
-  closed: true
+  closed: true,
 });
+
 const stats = new Stats();
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000514);
@@ -52,79 +48,18 @@ setHelper(scene, gui);
 
 const { directionalLight } = setLight(scene, gui);
 
-const { lensflare, lensflareElement } = setLensflare(directionalLight);
-
-lensflare.addElement(lensflareElement);
-directionalLight.add(lensflare);
-
-const earth = setEarth();
-scene.add(earth);
-
-const cloud = setCloud();
-scene.add(cloud);
-
-const points = setPoints();
-scene.add(points);
-
-setSunGui(directionalLight, lensflareElement, gui);
-
-setEarthGui(earth, cloud, gui);
-
 let selectiveBloom = new SelectiveBloom(scene, camera, renderer);
 
-const bloomFolder = gui.addFolder("Bloom");
-bloomFolder
-  .add(selectiveBloom.bloomPass, "strength")
-  .min(0)
-  .max(5)
-  .step(0.001)
-  .name("Strength")
-  .onChange((val: any) => {
-    selectiveBloom.bloomPass.strength = val;
-  });
-bloomFolder
-  .add(selectiveBloom.bloomPass, "radius")
-  .min(-5)
-  .max(5)
-  .step(0.001)
-  .name("Radius")
-  .onChange((val: any) => {
-    selectiveBloom.bloomPass.radius = val;
-  });
-bloomFolder
-  .add(selectiveBloom.bloomPass, "threshold")
-  .min(-5)
-  .max(5)
-  .step(0.001)
-  .name("Threshold")
-  .onChange((val: any) => {
-    selectiveBloom.bloomPass.threshold = val;
-  });
-
-const clock = new THREE.Clock();
+setSelectiveBloomGui(selectiveBloom, gui);
 
 const animate = () => {
   stats.begin();
-  const elapsedTime = clock.getElapsedTime();
-  earth.rotation.y = elapsedTime / 10;
-  cloud.rotation.y = elapsedTime / 10;
-
-  if (earth) {
-    earth.material.color.set(0x000000);
-    cloud.material.color.set(0x000000);
-    lensflareElement.color.set(0x000000);
-    scene.background = null;
-  }
+  scene.background = null;
 
   renderer.setClearColor(0x000000);
   selectiveBloom.bloomComposer.render();
 
-  if (earth) {
-    earth.material.color.set(earth.userData.color);
-    cloud.material.color.set(cloud.userData.color);
-    lensflareElement.color.set(0xffffff);
-    scene.background = new THREE.Color(0x000514);
-  }
+  scene.background = new THREE.Color(0x000514);
 
   renderer.setClearColor(0x1d1d1d);
   selectiveBloom.finalComposer.render();
